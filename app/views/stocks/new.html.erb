@@ -1,12 +1,14 @@
-<%= form_for(symbol) do |f| %>
+<h1>New Stock</h1>
+
+<%= form_for @stock do |f| %>
     <div class="field">
-        <%= f.label :symbol %><br />
-        <%= f.text_field :author %>
+        <%= f.label :stock %><br />
+        <%= f.text_field :stock %>
     </div>
 
     <div class="field">
         <%= f.label :date %><br />
-        <%= f.text_field :title %>
+        <%= f.text_field :date %>
     </div>
 
     <div class="actions">
