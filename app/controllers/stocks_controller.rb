@@ -27,8 +27,9 @@ class StocksController < ApplicationController
 
     def show
       key = ENV['ALPHA_KEY']
+      date = "2017-04-03"
       @stock = 'MSFT'
       stock_data = HTTParty.get("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=#{@stock}&outputsize=full&apikey=#{key}")      
+        @close = stock_data["Time Series (Daily)"]["#{date}"]["4. close"]    
     end
-
 end
