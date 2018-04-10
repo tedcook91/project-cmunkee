@@ -1,3 +1,5 @@
+require 'pry'
+
 class StocksController < ApplicationController
     skip_before_action :verify_authenticity_token
     # before_action :set_stock, only: [:show]
@@ -24,6 +26,9 @@ class StocksController < ApplicationController
     end
 
     def show
+      key = ENV['ALPHA_KEY']
+      @stock = 'MSFT'
+      stock_data = HTTParty.get("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=#{@stock}&outputsize=full&apikey=#{key}")      
     end
 
 end
