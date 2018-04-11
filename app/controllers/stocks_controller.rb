@@ -13,16 +13,15 @@ class StocksController < ApplicationController
 
     def create
         @stock = Stock.new(stock_params)
-        @stock.save!
+        key = ENV['ALPHA_KEY']
+        symbol = @stock.symbol
+        date = @stock.date
+        stock_data = HTTParty.get("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=#{symbol}&outputsize=full&apikey=#{key}")      
+        @close = stock_data["Time Series (Daily)"]["#{date}"]["4. close"]    
         render :show
     end
 
     def show
-      key = ENV['ALPHA_KEY']
-      symbol = @stock.symbol
-      date = @stock.date
-      stock_data = HTTParty.get("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=#{symbol}&outputsize=full&apikey=#{key}")      
-        @close = stock_data["Time Series (Daily)"]["#{date}"]["4. close"]    
     end
 
     

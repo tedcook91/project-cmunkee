@@ -1,7 +1,12 @@
-
-
-<h1>
-  <%= @stock.symbol %>
-  <%= @stock.date %>
-  <%= @close %>
-</h1>
+<table>
+<tr>
+<th>Symbol</th>
+<th>Date</th>
+<th>Closing Price</th>
+</tr>
+<tr>
+<td><%= @stock.symbol %> </td>
+<td><%= @stock.date %> </td>
+<td><%= @close %></td>
+</tr>
+</table>
