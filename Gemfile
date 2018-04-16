@@ -8,6 +8,9 @@ end
 gem 'httparty'
 
 gem 'pry'
+gem 'json'
+gem 'date'
+gem 'selenium-webdriver', '~> 2.48', '>= 2.48.1'
 
 gem 'dotenv-rails', groups: [:development, :test]
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
