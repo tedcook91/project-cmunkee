@@ -3,7 +3,6 @@ require 'pry'
 require 'json'
 require 'date'
 require 'selenium-webdriver'
-require 'dotenv/load'
 
 
 
