@@ -30,6 +30,7 @@ class StocksController < ApplicationController
 
     parse_page = Nokogiri::HTML(page_source)
 
+    @name = parse_page.xpath('//section/div[1]/div/h3').text
     @sector = parse_page.xpath('//section/div[1]/div/div/p[2]/strong[1]').text
     @industry = parse_page.xpath('//section/div[1]/div/div/p[2]/strong[2]').text
         

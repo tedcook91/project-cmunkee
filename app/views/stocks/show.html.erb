@@ -1,17 +1,19 @@
 <table>
 <tr>
 <th>Symbol</th>
+<th>Name</th>
 <th>Date</th>
 <th>Closing Price</th>
 <th>Sector</th>
 <th>Industry</th>
 </tr>
 <tr>
-<td><%= @stock.symbol %> </td>
-<td><%= @stock.date %> </td>
-<td><%= @close %></td>
-<td><%= @sector %></td>
-<td><%= @industry %></td>
+<td> <%= @stock.symbol.upcase %> </td>
+<td> <%= @name %> </td>
+<td> <%= @stock.date %> </td>
+<td> <%= @close %> </td>
+<td ><%= @sector %> </td>
+<td> <%= @industry %> </td>
 </tr>
 </table>
 <%= link_to 'Back', root_path%>
