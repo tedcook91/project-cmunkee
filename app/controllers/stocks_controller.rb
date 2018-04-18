@@ -2,7 +2,7 @@ require 'nokogiri'
 require 'pry'
 require 'json'
 require 'date'
-require 'selenium-webdriver'
+require 'open-uri'
 
 
 
@@ -26,23 +26,13 @@ class StocksController < ApplicationController
         stock_data = HTTParty.get("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=#{symbol}&outputsize=full&apikey=#{key}")      
         @close = stock_data["Time Series (Daily)"]["#{date}"]["4. close"]    
 
-    
-        driver = Selenium::WebDriver.for :chrome
-        
-        driver.navigate.to "http://www.morningstar.com/stocks/xnys/#{symbol}/quote.html"
-        wait = Selenium::WebDriver::Wait.new(:timeout => 10)
-        
-        begin
-            
-            parse_page = Nokogiri::HTML(driver.page_source)
-            
-            @sector = parse_page.css('.sal-component-company-profile-body').css('.sal-snap-panel').css('.sal-dp-value').css('.sal-dp-value').css('.ng-binding')[0].text.strip
-            @industry = parse_page.css('.sal-component-company-profile-body').css('.sal-snap-panel').css('.sal-dp-value').css('.sal-dp-value').css('.ng-binding')[1].text.strip
-            
-        ensure
-            driver.quit
-        end
+    page_source = open("https://finance.yahoo.com/quote/#{symbol}/profile").read
 
+    parse_page = Nokogiri::HTML(page_source)
+
+    @sector = parse_page.xpath('//section/div[1]/div/div/p[2]/strong[1]').text
+    @industry = parse_page.xpath('//section/div[1]/div/div/p[2]/strong[2]').text
+        
         render :show
     end
 
