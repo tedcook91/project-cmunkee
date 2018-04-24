@@ -17,7 +17,11 @@ ActiveRecord::Schema.define(version: 20180408144528) do
 
   create_table "stocks", force: :cascade do |t|
     t.string "symbol"
+    t.string "name"
     t.string "date"
+    t.string "close"
+    t.string "sector"
+    t.string "industry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

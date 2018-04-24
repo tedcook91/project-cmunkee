@@ -1,19 +1,26 @@
 <h1>New Stock</h1>
 
-<%= form_for @stock do |f| %>
-    <div class="field">
-        <%= f.label :symbol %><br />
-        <%= f.text_field :symbol %>
-    </div>
+<div class="form">
+    <%= form_for @stock do |f| %>
+        <div class="field">
+            <%= f.label :date %><br />
+            <%= f.date_field :date %>
+        </div>
+        
+        <div class="symbol">
+            <%= f.label :symbol %><br />
+            <%= f.text_field :symbol %>
+        </div>
 
-    <div class="field">
-        <%= f.label :date %><br />
-        <%= f.date_field :date %>
-    </div>
+        <div class ="addSymbol">
+            <% f.submit button_tag %>
+            <%= f.submit 'Add Symbol', name: 'addsymbol_button' %>       
+        </div>
 
-    <div class="actions">
-        <%= f.submit %>
-    </div>
+
+        <div class="actions">
+            <%= f.submit %>
+        </div>
+</div>
 <% end %>
 
-<%= link_to 'Back', root_path%>

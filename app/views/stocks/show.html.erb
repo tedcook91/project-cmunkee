@@ -7,13 +7,15 @@
 <th>Sector</th>
 <th>Industry</th>
 </tr>
+<% @stocks.each do |t| %>
 <tr>
-<td> <%= @stock.symbol.upcase %> </td>
-<td> <%= @name %> </td>
-<td> <%= @stock.date %> </td>
-<td> <%= @close %> </td>
-<td ><%= @sector %> </td>
-<td> <%= @industry %> </td>
+<td> <%= t.symbol.upcase %> </td>
+<td> <%= t.name %> </td>
+<td> <%= t.date %> </td>
+<td> <%= t.close %> </td>
+<td ><%= t.sector %> </td>
+<td> <%= t.industry %> </td>
 </tr>
+<% end %>
 </table>
 <%= link_to 'Back', root_path%>

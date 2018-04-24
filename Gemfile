@@ -8,6 +8,7 @@ end
 
 gem 'httparty'
 
+gem 'jquery-rails'
 gem 'pry'
 gem 'json'
 gem 'date'
