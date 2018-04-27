@@ -8,12 +8,14 @@
 <th>Industry</th>
 </tr>
 <tr>
-<td> <%= @stock.symbol.upcase %> </td>
-<td> <%= @name %> </td>
-<td> <%= @stock.date %> </td>
-<td> <%= @close %> </td>
-<td ><%= @sector %> </td>
-<td> <%= @industry %> </td>
+<%= @symbol_array.each do |s| %>
+<td> <%= s[:symbol].upcase %> </td>
+<td> <%= s[:name] %> </td>
+<td> <%= s[:date] %> </td>
+<td> <%= s[:close] %> </td>
+<td ><%= s[:sector] %> </td>
+<td> <%= s[:industry] %> </td>
 </tr>
+<% end %>
 </table>
 <%= link_to 'Back', root_path%>
