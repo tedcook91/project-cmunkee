@@ -8,7 +8,7 @@
 <th>Industry</th>
 </tr>
 <tr>
-<%= @symbol_array.each do |s| %>
+<% @symbol_array.each do |s| %>
 <td> <%= s[:symbol].upcase %> </td>
 <td> <%= s[:name] %> </td>
 <td> <%= s[:date] %> </td>
