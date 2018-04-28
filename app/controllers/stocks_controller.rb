@@ -42,7 +42,7 @@ class StocksController < ApplicationController
             @close = stock_data["Time Series (Daily)"]["#{date}"]["4. close"]   
              
             
-            sleep 1.5
+            
 
             page_source = open("https://finance.yahoo.com/quote/#{s}/profile").read
             
