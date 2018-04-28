@@ -23,7 +23,9 @@ class StocksController < ApplicationController
         @stock = Stock.new(stock_params)
         key = ENV['ALPHA_KEY']
         symbol = @stock.symbol
-        symbols = symbol.split(',')
+        symbols = symbol.split(',').collect(&:strip)
+
+        
         
         
         date = @stock.date
