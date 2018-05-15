@@ -4,7 +4,7 @@ This is the default way they are pasted into the form if you copy a column from 
 <li>If an error is thrown, double check the symbols are valid and that the date isn't a weekend or holiday.</li>
 <li>If it still is throwing an error, let me know.</li>
 </ul>
-
+<div class="forms">
 <%= form_for @stock do |f| %>
     <div class="field">
         <%= f.label :symbols %><br />
@@ -22,3 +22,4 @@ This is the default way they are pasted into the form if you copy a column from 
 <% end %>
 
 <%= link_to 'Back', root_path%>
+</div>
