@@ -23,7 +23,7 @@ class StocksController < ApplicationController
         @stock = Stock.new(stock_params)
         key = ENV['ALPHA_KEY']
         symbol = @stock.symbol
-        binding.pry
+        
 
 
 
